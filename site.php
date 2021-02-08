@@ -5,7 +5,7 @@ header("Content-Type: text/html;charset=utf-8");
 $conn = OpenCon();
 $conn->query("SET NAMES 'utf8'");  // permet d'éviter les problèmes de carractère comme les accents ou autres
 
-$querie = "SELECT * FROM projects";
+$querie = "SELECT * FROM :lock:";
 ?>
 
 
@@ -85,18 +85,18 @@ $querie = "SELECT * FROM projects";
                 $result = $conn->query($querie);
                 while ($row = $result->fetch_assoc()) {
 
-                    $tags = explode(',', $row['pj_tags']); // liste des tags récuperer en bdd
+                    $tags = explode(',', $row[':lock:']); // liste des tags récuperer en bdd
             ?>
                 <div class="projectCard">
-                    <div class="projectImage"> <img src=img/<?php echo $row["pj_image"]?> alt="Illustration du projet"></div>
+                    <div class="projectImage"> <img src=img/<?php echo $row[":lock:"]?> alt="Illustration du projet"></div>
                     <div class="tags"><span class="tag"><i class="fas fa-tags tagsIcon"></i> <?php echo $tags[0] ?></span>
                         <span class="tag"><i class="fas fa-tags tagsIcon"></i><?php echo $tags[1] ?></span>
                         <span class="tag"><i class="fas fa-tags tagsIcon"></i><?php echo $tags[2] ?></span></div>
                     <div class="projectInfo">
-                        <h2 class="projectTitle"><?php echo $row["pj_nom"]?></h2>
-                        <p class="projectResume"><?php echo $row["pj_resume"]?></p>
-                        <p class="status"> Statut : <?php echo $row['pj_status'] ? "fini" : "en cours" ?></p>
-                        <button class="projectButton"><a href="<?php echo $row["pj_href"]?>" target="_blank" class="projectLink">Voir le projet</a></button>
+                        <h2 class="projectTitle"><?php echo $row[":lock:"]?></h2>
+                        <p class="projectResume"><?php echo $row[":lock:"]?></p>
+                        <p class="status"> Statut : <?php echo $row[':lock:'] ? "fini" : "en cours" ?></p>
+                        <button class="projectButton"><a href="<?php echo $row[":lock:"]?>" target="_blank" class="projectLink">Voir le projet</a></button>
                     </div>
 
                 </div>
