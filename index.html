@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Développement</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<body>
+    <iframe style="transition-property: opacity; transition: all .3s ease-in-out; visibility: hidden; opacity: 0; border: none; position: absolute; top: 10%;  left: 50%; transform: translateX(-50%);" src="https://antoinepauthier.fr/index.php" width="375px" height="812px"></iframe>
+ </body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
+ <script>
+
+    if(Ismobile()){
+            if(confirm("Le site est toujours en cours de développement et donc n'est pas optimisé \n Il se peut que vous rencontreriez des bugs ainsi que des contenus manquants \n Voulez-vous continuer ?"))
+                window.location.replace("https://antoinepauthier.fr/index.php")
+            else
+                window.location.replace("https://google.fr")
+        }
+        else{
+            if(confirm("Le site n'est pas encore visible pour les versions ordinateurs \n Voulez vous voir la versions mobile ?")){
+                appear()
+            }
+            else{
+                window.location.replace("https://google.fr");
+            }
+            
+        }
+
+        function appear(){
+            var iframe = document.querySelector('iframe')
+            iframe.style.visibility="visible"
+            iframe.style.opacity="1"
+
+        }
+        function Ismobile(){
+        var md = new MobileDetect(window.navigator.userAgent);
+        var mobileOrNot = md.mobile() != null ? true : false
+        return mobileOrNot
+    }
+</script>
+</html>
